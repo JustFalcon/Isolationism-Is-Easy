@@ -1,0 +1,17 @@
+on_five_year_pulse = {
+	if = {
+		limit = {
+			OR = {
+				had_country_flag = { flag = eziso_neo_confucianism days = 9125 }
+				had_country_flag = { flag = eziso_nanban days = 9125 }
+				had_country_flag = { flag = eziso_firearms days = 9125 }
+				had_country_flag = { flag = eziso_christianity days = 9125 }
+				had_country_flag = { flag = eziso_shogunate_authority days = 9125 }
+				had_country_flag = { flag = eziso_ikko_shu days = 9125 }
+				had_country_flag = { flag = eziso_urbanization days = 9125 }
+				had_country_flag = { flag = eziso_wokou days = 9125 }
+			}
+		}
+		country_event = { id = eziso_events.1 }
+	}
+}

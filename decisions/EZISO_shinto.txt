@@ -1,0 +1,35 @@
+country_decisions = {
+	eziso_select_incident = {
+		major = yes
+		color = { 224  4  27 }
+		potential = {
+			religion = shinto
+		}
+		allow = {
+			religion = shinto
+		}
+		effect = {
+			country_event = { id = eziso_events.1 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				has_country_flag = shinto_active_incident_flag
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					has_country_flag = eziso_neo_confucianism
+					has_country_flag = eziso_nanban
+					has_country_flag = eziso_firearms
+					has_country_flag = eziso_christianity
+					has_country_flag = eziso_shogunate_authority
+					has_country_flag = eziso_ikko_shu
+					has_country_flag = eziso_urbanization
+				}
+			}
+		}
+	}
+
+}

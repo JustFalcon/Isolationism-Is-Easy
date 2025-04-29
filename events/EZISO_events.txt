@@ -1,0 +1,188 @@
+namespace = eziso_events
+
+
+country_event = {
+	id = eziso_events.1
+	title = eziso_events.1.title
+	desc = eziso_events.1.desc
+	picture = WOKOU_INCIDENT_eventPicture
+	
+	major = no
+	is_triggered_only = yes
+
+	immediate = {
+		clr_country_flag = eziso_neo_confucianism
+		clr_country_flag = eziso_nanban
+		clr_country_flag = eziso_firearms
+		clr_country_flag = eziso_christianity
+		clr_country_flag = eziso_shogunate_authority
+		clr_country_flag = eziso_ikko_shu
+		clr_country_flag = eziso_urbanization
+		clr_country_flag = eziso_wokou
+	}
+
+	option = {
+		name = "eziso_events.1.a"
+		# Neo Confucianism
+		custom_tooltip = eziso_neo_confucianism_event_tooltip
+		hidden_effect = {
+			# Set the flag for Neo Confucianism
+			set_country_flag = eziso_neo_confucianism
+		}
+		trigger = {
+			NOT = {
+				is_incident_happened = incident_neo_confucianism
+			}
+		}
+	}
+
+	option = {
+		# Nanban Trade
+		name = "eziso_events.1.b"
+		custom_tooltip = eziso_nanban_event_tooltip
+		hidden_effect = {
+			# Set the flag for Nanban Trade
+			set_country_flag = eziso_nanban
+		}
+		trigger = {
+			NOT = { 
+				is_incident_happened = incident_nanban
+			}
+			is_institution_enabled = new_world_i
+			num_of_ports = 1
+			has_global_flag = japan_has_encountered_the_west
+		}
+	}
+
+	option = {
+		name = "eziso_events.1.c"
+		# Proliferation of Firearms
+		custom_tooltip = eziso_firearms_event_tooltip
+		hidden_effect = {
+			# Set the flag for Firearms
+			set_country_flag = eziso_firearms
+		}
+		trigger = {
+			NOT = {
+				is_incident_happened = incident_firearms
+			}
+			is_incident_happened = incident_nanban
+		}
+	}
+
+	option = {
+		name = "eziso_events.1.d"
+		# Spread of Christianity
+		custom_tooltip = eziso_christianity_event_tooltip
+		hidden_effect = {
+			# Set the flag for Christianity
+			set_country_flag = eziso_christianity
+		}
+		trigger = {
+			NOT = {
+				is_incident_happened = incident_spread_of_christianity
+			}
+			has_global_flag = japan_has_encountered_the_west
+			any_known_country = {
+				religion_group = christian
+			}
+		}
+	}
+
+	option = {
+		name = "eziso_events.1.e"
+		# Rising Shogunate Authority
+		custom_tooltip = eziso_shogunate_authority_event_tooltip
+		hidden_effect = {
+			# Set the flag for Shogunate Authority
+			set_country_flag = eziso_shogunate_authority
+		}
+		trigger = {
+			NOT = {
+				is_incident_happened = incident_shogunate_authority
+			}
+			has_reform = daimyo
+			OR = {
+				current_age = age_of_reformation
+				current_age = age_of_absolutism
+				current_age = age_of_revolutions
+			}
+			is_subject = yes
+		}
+	}
+
+	option = {
+		name = "eziso_events.1.f"
+		# Ikko Ikki
+		custom_tooltip = eziso_ikko_shu_event_tooltip
+		hidden_effect = {
+			# Set the flag for Ikko Ikki
+			set_country_flag = eziso_ikko_shu
+		}
+		trigger = {
+			NOT = {
+				is_incident_happened = incident_ikko_shu
+			}
+			NOT = { current_age = age_of_discovery }
+		}
+	}
+
+	option = {
+		name = "eziso_events.1.g"
+		# Urbanization
+		custom_tooltip = eziso_urbanization_event_tooltip
+		hidden_effect = {
+			# Set the flag for Urbanization
+			set_country_flag = eziso_urbanization
+		}
+		trigger = {
+			NOT = {
+				is_incident_happened = incident_urbanization
+			}
+			has_institution = global_trade
+			num_of_cities = 2
+		}
+	}
+	option = {
+		name = "eziso_events.1.h"
+		# Wokou Pirates
+		custom_tooltip = eziso_wokou_event_tooltip
+		hidden_effect = {
+			# Set the flag for Wokou Pirates
+			set_country_flag = eziso_wokou
+		}
+		trigger = {
+			NOT = {
+				is_incident_happened = incident_wokou
+			}
+			num_of_ports = 1
+			any_known_country = {
+				num_of_ports = 1
+				NOT = { religion = shinto }
+			}
+			any_neighbor_country = {
+				exists = yes
+			}
+
+		}
+	}
+	option = {
+		name = "eziso_events.1.i"
+		# No Option Selected
+		custom_tooltip = eziso_no_option_event_tooltip
+		hidden_effect = {
+			clr_country_flag = eziso_neo_confucianism
+			clr_country_flag = eziso_nanban
+			clr_country_flag = eziso_firearms
+			clr_country_flag = eziso_christianity
+			clr_country_flag = eziso_shogunate_authority
+			clr_country_flag = eziso_ikko_shu
+			clr_country_flag = eziso_urbanization
+			clr_country_flag = eziso_wokou
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+	
+}
