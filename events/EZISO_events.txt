@@ -184,10 +184,4 @@ country_event = {
 			factor = 0
 		}
 	}
-	option = {
-		name = "eziso_events.1.j"
-		# No Option Selected (AI)
-		
-	}
-	
 }
